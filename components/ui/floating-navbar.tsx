@@ -104,7 +104,7 @@ export const FloatingNav = ({
             {item.name === "button" ? (
               <ThemeToggle />
             ) : (
-              <Link href={`item.link`} className="flex gap-2">
+              <Link href={`/item.link`} className="flex gap-2">
                 {item.icon}
                 <span className="text-sm font-semibold text-neutral-500 dark:text-white">
                   {item.name}
