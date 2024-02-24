@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 "use client";
 import { cn } from "@/utils/cn";
 import { motion } from "framer-motion";
@@ -15,7 +16,6 @@ export function Test() {
           description={item.description}
           header={item.header}
           className={cn("[&>p:text-lg]", item.className)}
-          icon={item.icon}
         />
       ))}
     </BentoGrid>
@@ -72,7 +72,7 @@ const SkeletonOne = () => {
         variants={variantsSecond}
         className="flex flex-row rounded-full border border-neutral-100 dark:border-white/[0.2] p-2 items-center space-x-2 md:w-3/4 ml-auto bg-white dark:bg-black dark:bg-opacity-50"
       >
-        <p cla>Expérience approfondie en React.js et Next.js</p>
+        <p>Expérience approfondie en React.js et Next.js</p>
         <div>
           <div className="h-6 w-6 rounded-full bg-gradient-to-r from-pink-500 to-violet-500 flex-shrink-0" />
         </div>

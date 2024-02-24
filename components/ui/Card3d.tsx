@@ -33,11 +33,9 @@ export function Card3d() {
           <div className="flex justify-between items-center mt-20">
             <CardItem
               translateZ={20}
-              as="a"
-              href="https://au-fils-de-l-eau.vercel.app/"
               className="px-4 py-2 rounded-xl text-xs font-normal dark:text-white"
             >
-              Par ici →
+              <a href="https://voilier.vercel.app/">Par ici →</a>
             </CardItem>
           </div>
         </CardBody>
@@ -71,10 +69,9 @@ export function Card3d() {
             <CardItem
               translateZ={20}
               as="a"
-              href="https://sophie-gamma.vercel.app/index.html"
               className="px-4 py-2 rounded-xl text-xs font-normal dark:text-white"
             >
-              Par ici →
+              <a href="https://sophie-gamma.vercel.app/index.html">Par ici →</a>
             </CardItem>
           </div>
         </CardBody>
@@ -106,11 +103,9 @@ export function Card3d() {
           <div className="flex justify-between items-center mt-20">
             <CardItem
               translateZ={20}
-              as="a"
-              href="https://cabinet-infirmier-argeles.com/"
               className="px-4 py-2 rounded-xl text-xs font-normal dark:text-white"
             >
-              Par ici →
+              <a href="https://cabinet-infirmier-argeles.com/">Par ici →</a>
             </CardItem>
           </div>
         </CardBody>
