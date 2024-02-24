@@ -19,7 +19,7 @@ export const FloatingNav = ({
   const { scrollYProgress } = useScroll();
   const [visible, setVisible] = useState(true);
   const previousScrollY = useRef(0); // Track previous scroll position
-  const visibilityTimeout = useRef(null); // Store visibility timeout
+  const visibilityTimeout = useRef(null as NodeJS.Timeout | null);
 
   const handleScroll = () => {
     const currentScrollY = window.scrollY;
@@ -104,7 +104,7 @@ export const FloatingNav = ({
             {item.name === "button" ? (
               <ThemeToggle />
             ) : (
-              <Link href={item.link} className="flex gap-2">
+              <Link href={`item.link`} className="flex gap-2">
                 {item.icon}
                 <span className="text-sm font-semibold text-neutral-500 dark:text-white">
                   {item.name}
