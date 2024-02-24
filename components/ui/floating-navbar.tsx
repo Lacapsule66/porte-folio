@@ -11,7 +11,7 @@ export const FloatingNav = ({
 }: {
   navItems: {
     name: string;
-    link?: string; // Optional link for non-button items
+    link: string; // Optional link for non-button items
     icon?: JSX.Element;
   }[];
   className?: string;
@@ -104,7 +104,7 @@ export const FloatingNav = ({
             {item.name === "button" ? (
               <ThemeToggle />
             ) : (
-              <Link href="/about" className="flex gap-2">
+              <Link href={item.link} className="flex gap-2">
                 {item.icon}
                 <span className="text-sm font-semibold text-neutral-500 dark:text-white">
                   {item.name}
