@@ -1,6 +1,11 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+
+import { Background } from "@/components/Background";
+import Footer from "@/components/ui/Footer";
+import Header from "./features/header/Header";
 import "./globals.css";
+import { Providers } from "./providers/providers";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -15,8 +20,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="fr">
+      <body className="relative scrollbar ">
+        <Providers>
+          {/* <WavyBackground backgroundFill="hsl(var(--background))"> */}
+          <Background className=" bg-transparent -z-20" />
+          <Header />
+          {children}
+          {/* </WavyBackground> */}
+        </Providers>
+        <Footer />
+      </body>
     </html>
   );
 }
