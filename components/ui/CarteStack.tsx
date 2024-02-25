@@ -37,8 +37,8 @@ const CARDS = [
     designation: "Web developer fullstack",
     content: (
       <p>
-        Merci d'avoir pris le temps d'analyser mon travail, envoyez moi un email
-        pour rentré en contact avec moi{" "}
+        Merci d'avoir pris le temps d'analyser mon travail. Veuillez m'envoyer
+        un email pour entrer en contact avec moi à{" "}
         <Highlight>martyromain.dev@gmail.com</Highlight> A très vite ! 🤝
       </p>
     ),

@@ -1,8 +1,10 @@
 "use client";
 import { Test } from "@/components/Test";
 import { Card3d } from "@/components/ui/Card3d";
+import { Test2 } from "@/components/ui/Test2";
 import { TextEffect } from "@/components/ui/TextEffect";
 import { TracingBeam } from "@/components/ui/tracing-beam";
+import { BrowserView, MobileView } from "react-device-detect";
 
 export default function Home() {
   const variants = {
@@ -33,7 +35,12 @@ export default function Home() {
     <div>
       <TracingBeam>
         <TextEffect />
-        <Test />
+        <MobileView>
+          <Test />
+        </MobileView>
+        <BrowserView>
+          <Test2 />
+        </BrowserView>
         <Card3d />
       </TracingBeam>
     </div>
