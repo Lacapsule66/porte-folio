@@ -1,8 +1,9 @@
 /* eslint-disable react/no-unescaped-entities */
 "use client";
 import { cn } from "@/utils/cn";
-import { motion } from "framer-motion";
+import { motion, useAnimation, useInView } from "framer-motion";
 import Image from "next/image";
+import { useEffect, useRef } from "react";
 import { BentoGrid, BentoGridItem } from "./ui/bento-grid";
 
 export function Test() {
@@ -36,6 +37,7 @@ const SkeletonOne = () => {
       rotate: 0,
       transition: {
         duration: 0.2,
+        delay: 0.5,
       },
     },
   };
@@ -52,11 +54,26 @@ const SkeletonOne = () => {
       },
     },
   };
+  const ref = useRef(null);
+  const inView = useInView(ref, {
+    margin: "0px 100px -50px 0px",
+  });
+  const controls = useAnimation();
+  useEffect(() => {
+    if (inView) {
+      console.log("inView");
+      controls.start("animate");
+    } else {
+      controls.start("initial");
+    }
+  }, [inView, controls]);
 
   return (
     <motion.div
+      ref={ref}
       initial="initial"
-      whileHover="animate"
+      animate={controls}
+      whileHover={"animate"}
       className="flex flex-1 w-full h-full min-h-[6rem] dark:bg-dot-white/[0.2] bg-dot-black/[0.2] flex-col space-y-2"
     >
       <motion.div
@@ -174,11 +191,23 @@ const SkeletonTwo = () => {
       },
     },
   };
+  const ref = useRef(null);
+  const inView = useInView(ref);
+  const controls = useAnimation();
+  useEffect(() => {
+    if (inView) {
+      console.log("inView");
+      controls.start("animate");
+    } else {
+      controls.start("initial");
+    }
+  }, [inView, controls]);
 
   return (
     <motion.div
       initial="initial"
-      whileHover="animate"
+      animate={controls}
+      ref={ref}
       transition={{ staggerChildren: 0.1 }}
       className=" dark:bg-dot-white/[0.2] bg-dot-black/[0.2] space-y-2 grid grid-cols- grid-cols-3 gap-2 p-2 rounded-lg"
     >
@@ -199,10 +228,24 @@ const SkeletonThree = () => {
       backgroundPosition: ["0, 50%", "100% 50%", "0 50%"],
     },
   };
+  const ref = useRef(null);
+  const inView = useInView(ref);
+  const controls = useAnimation();
+  useEffect(() => {
+    if (inView) {
+      console.log("inView");
+      controls.start("animate");
+    } else {
+      controls.start("initial");
+    }
+  }, [inView, controls]);
+
   return (
     <motion.div
+      whileInView={"animate"}
       initial="initial"
-      animate="animate"
+      animate={controls}
+      whileHover={"animate"}
       variants={variants}
       transition={{
         duration: 5,
@@ -241,11 +284,24 @@ const SkeletonFour = () => {
       rotate: 0,
     },
   };
+  const ref = useRef(null);
+  const inView = useInView(ref);
+  const controls = useAnimation();
+  useEffect(() => {
+    if (inView) {
+      console.log("inView");
+      controls.start("hover");
+    } else {
+      controls.start("initial");
+    }
+  }, [inView, controls]);
+
   return (
     <motion.div
       initial="initial"
-      animate="animate"
-      whileHover="hover"
+      animate={controls}
+      ref={ref}
+      whileHover={"hover"}
       className="flex flex-1 w-full h-full min-h-[6rem] dark:bg-dot-white/[0.2] bg-dot-black/[0.2] flex-row space-x-2"
     >
       <motion.div
@@ -328,10 +384,24 @@ const SkeletonFive = () => {
     },
   };
 
+  const ref = useRef(null);
+  const inView = useInView(ref);
+  const controls = useAnimation();
+  useEffect(() => {
+    if (inView) {
+      console.log("inView");
+      controls.start("animate");
+    } else {
+      controls.start("initial");
+    }
+  }, [inView, controls]);
+
   return (
     <motion.div
       initial="initial"
-      whileHover="animate"
+      animate={controls}
+      ref={ref}
+      whileHover={"animate"}
       className="flex flex-1 w-full h-full min-h-[6rem] dark:bg-dot-white/[0.2] bg-dot-black/[0.2] flex-col space-y-2"
     >
       <motion.div
