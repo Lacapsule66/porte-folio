@@ -111,7 +111,71 @@ const SkeletonOne = () => {
 const SkeletonTwo = () => {
   const ref = useRef(null);
   const ref2 = useRef(null);
-
+  const stackList = [
+    {
+      icon: (
+        <Image
+          ref={ref}
+          className="rounded-full"
+          src="/images/stack/tailwind.svg"
+          alt="Tailwind CSS"
+          height="40"
+          width="40"
+        />
+      ),
+    },
+    // stripe
+    {
+      icon: (
+        <Image
+          ref={ref2}
+          className="rounded-full"
+          src="/images/stack/stripe.svg"
+          alt="Stripe"
+          height="40"
+          width="40"
+        />
+      ),
+    },
+    // resend
+    {
+      icon: (
+        <Image
+          ref={ref}
+          className="rounded-full"
+          src="/images/stack/nextauth.png"
+          alt="Resend"
+          height="40"
+          width="40"
+        />
+      ),
+    },
+    // prisma
+    {
+      icon: (
+        <Image
+          ref={ref2}
+          className="rounded-full"
+          src="/images/stack/prisma.svg"
+          alt="Prisma"
+          height="40"
+          width="40"
+        />
+      ),
+    },
+    {
+      icon: (
+        <Image
+          ref={ref}
+          className="rounded-full"
+          src="/images/stack/prisma.svg"
+          alt="Prisma"
+          height="40"
+          width="40"
+        />
+      ),
+    },
+  ];
   const variants = {
     initial: {
       // translate z
