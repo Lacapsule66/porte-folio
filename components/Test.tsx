@@ -77,7 +77,6 @@ const SkeletonOne = () => {
           trigger: ref.current,
           start: "top 80%",
           end: "bottom 20%",
-          scrub: 1,
         },
         stagger: 0.5,
       },
@@ -92,12 +91,12 @@ const SkeletonOne = () => {
       ref2.current,
       {
         rotate: 5,
+        repeat: 10,
         x: 10,
         scrollTrigger: {
           trigger: ref2.current,
           start: "top 80%",
           end: "bottom 20%",
-          scrub: 1,
         },
         stagger: 0.5,
       },
