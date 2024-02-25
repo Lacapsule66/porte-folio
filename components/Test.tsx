@@ -57,6 +57,7 @@ const SkeletonOne = () => {
       rotate: 0,
       transition: {
         duration: 0.2,
+        delay: 0.5,
       },
     },
   };
@@ -66,53 +67,12 @@ const SkeletonOne = () => {
     margin: "0px 100px -50px 0px",
   });
   const controls = useAnimation();
-  useEffect(() => {
-    const tl = gsap.timeline();
-    tl.fromTo(
-      ref.current,
-      {
-        rotate: -5,
-        x: -10,
-        scrollTrigger: {
-          trigger: ref.current,
-          start: "top 80%",
-          end: "bottom 20%",
-        },
-        stagger: 0.5,
-      },
-      {
-        rotate: 0,
-        x: 0,
-        duration: 0.5,
-      }
-    );
-    const tl2 = gsap.timeline();
-    tl2.fromTo(
-      ref2.current,
-      {
-        rotate: 5,
-        repeat: 10,
-        x: 10,
-        scrollTrigger: {
-          trigger: ref2.current,
-          start: "top 80%",
-          end: "bottom 20%",
-        },
-        stagger: 0.5,
-      },
-      {
-        rotate: 0,
-        x: 0,
-        duration: 0.5,
-      }
-    );
-  }, []);
 
   return (
     <motion.div
       initial="initial"
       animate={controls}
-      whileHover={"animate"}
+      whileInView={"animate"}
       className="flex flex-1 w-full h-full min-h-[6rem] dark:bg-dot-white/[0.2] bg-dot-black/[0.2] flex-col space-y-2"
     >
       <motion.div
@@ -151,39 +111,6 @@ const SkeletonOne = () => {
 const SkeletonTwo = () => {
   const ref = useRef(null);
   const ref2 = useRef(null);
-  useEffect(() => {
-    const tl = gsap.timeline();
-    tl.to("#stack", {
-      rotate: 360,
-      translateZ: 10,
-      duration: 0.5,
-      scrollTrigger: {
-        trigger: ref.current,
-        start: "top 50%",
-        end: "bottom 20%",
-        markers: true,
-      },
-    });
-
-    const tl2 = gsap.timeline();
-    tl2.fromTo(
-      "#stack",
-      {
-        rotate: 360,
-      },
-      {
-        rotate: 0,
-        duration: 0.5,
-        scrollTrigger: {
-          trigger: ref2.current,
-          start: "top 50%",
-          end: "bottom 20%",
-
-          markers: true,
-        },
-      }
-    );
-  }, []);
 
   const stackList = [
     {
@@ -260,6 +187,7 @@ const SkeletonTwo = () => {
       translateZ: 10,
       transition: {
         duration: 0.2,
+        delay: 0.5,
       },
     },
   };
@@ -271,6 +199,7 @@ const SkeletonTwo = () => {
       rotate: -360,
       transition: {
         duration: 0.2,
+        ease: "easeInOut",
       },
     },
   };
@@ -283,6 +212,7 @@ const SkeletonTwo = () => {
     >
       {stackList.map((stack, i) => (
         <motion.div
+          whileInView={"animate"}
           id="stack"
           key={i}
           variants={i % 2 === 0 ? variants : variantsSecond}
@@ -347,6 +277,9 @@ const SkeletonFour = () => {
     hover: {
       x: 0,
       rotate: 0,
+      transition: {
+        delay: 0.5,
+      },
     },
   };
   const second = {
@@ -357,6 +290,9 @@ const SkeletonFour = () => {
     hover: {
       x: 0,
       rotate: 0,
+      transition: {
+        delay: 0.5,
+      },
     },
   };
   const ref = useRef(null);
@@ -373,6 +309,7 @@ const SkeletonFour = () => {
 
   return (
     <motion.div
+      id="view"
       initial="initial"
       animate={controls}
       ref={ref}
@@ -442,6 +379,7 @@ const SkeletonFive = () => {
       rotate: 5,
       transition: {
         duration: 0.2,
+        delay: 0.5,
       },
     },
   };
@@ -454,6 +392,7 @@ const SkeletonFive = () => {
       rotate: -5,
       transition: {
         duration: 0.2,
+        delay: 0.5,
       },
     },
   };
@@ -479,6 +418,7 @@ const SkeletonFive = () => {
     >
       <motion.div
         variants={variants}
+        whileInView={"animate"}
         className="flex flex-row rounded-2xl border border-neutral-100 dark:border-white/[0.2] p-2  items-start space-x-2 bg-white dark:bg-black"
       >
         <Image
@@ -493,6 +433,7 @@ const SkeletonFive = () => {
         </p>
       </motion.div>
       <motion.div
+        whileInView={"animate"}
         variants={variantsSecond}
         className="flex flex-row rounded-full border border-neutral-100 dark:border-white/[0.2] p-2 items-center justify-end space-x-2 w-3/4 ml-auto bg-white dark:bg-black"
       >
