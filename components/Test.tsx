@@ -2,9 +2,15 @@
 "use client";
 import { cn } from "@/utils/cn";
 import { motion, useAnimation, useInView } from "framer-motion";
+
+import { gsap } from "gsap";
 import Image from "next/image";
 import { useEffect, useRef } from "react";
 import { BentoGrid, BentoGridItem } from "./ui/bento-grid";
+
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export function Test() {
   return (
@@ -55,22 +61,56 @@ const SkeletonOne = () => {
     },
   };
   const ref = useRef(null);
+  const ref2 = useRef(null);
   const inView = useInView(ref, {
     margin: "0px 100px -50px 0px",
   });
   const controls = useAnimation();
   useEffect(() => {
-    if (inView) {
-      console.log("inView");
-      controls.start("animate");
-    } else {
-      controls.start("initial");
-    }
-  }, [inView, controls]);
+    const tl = gsap.timeline();
+    tl.fromTo(
+      ref.current,
+      {
+        rotate: -5,
+        x: -10,
+        scrollTrigger: {
+          trigger: ref.current,
+          start: "top 80%",
+          end: "bottom 20%",
+          scrub: 1,
+        },
+        stagger: 0.5,
+      },
+      {
+        rotate: 0,
+        x: 0,
+        duration: 0.5,
+      }
+    );
+    const tl2 = gsap.timeline();
+    tl2.fromTo(
+      ref2.current,
+      {
+        rotate: 5,
+        x: 10,
+        scrollTrigger: {
+          trigger: ref2.current,
+          start: "top 80%",
+          end: "bottom 20%",
+          scrub: 1,
+        },
+        stagger: 0.5,
+      },
+      {
+        rotate: 0,
+        x: 0,
+        duration: 0.5,
+      }
+    );
+  }, []);
 
   return (
     <motion.div
-      ref={ref}
       initial="initial"
       animate={controls}
       whileHover={"animate"}
@@ -78,6 +118,7 @@ const SkeletonOne = () => {
     >
       <motion.div
         variants={variants}
+        ref={ref}
         className="flex flex-row rounded-full border border-neutral-100 dark:border-white/[0.2] p-2  items-center space-x-2 w-3/4 md:w-full bg-white dark:bg-black "
       >
         <div>
@@ -86,6 +127,7 @@ const SkeletonOne = () => {
         <p> Passionné de développement web</p>
       </motion.div>
       <motion.div
+        ref={ref2}
         variants={variantsSecond}
         className="flex flex-row rounded-full border border-neutral-100 dark:border-white/[0.2] p-2 items-center space-x-2 md:w-3/4 ml-auto bg-white dark:bg-black dark:bg-opacity-50"
       >
@@ -95,6 +137,7 @@ const SkeletonOne = () => {
         </div>
       </motion.div>
       <motion.div
+        ref={ref}
         variants={variants}
         className="flex flex-row rounded-full border border-neutral-100 dark:border-white/[0.2] p-2 items-center space-x-2 bg-white md:w-3/4 dark:bg-black  dark:bg-opacity-50"
       >
@@ -107,10 +150,47 @@ const SkeletonOne = () => {
   );
 };
 const SkeletonTwo = () => {
+  const ref = useRef(null);
+  const ref2 = useRef(null);
+  useEffect(() => {
+    const tl = gsap.timeline();
+    tl.to("#stack", {
+      rotate: 360,
+      translateZ: 10,
+      duration: 0.5,
+      scrollTrigger: {
+        trigger: ref.current,
+        start: "top 50%",
+        end: "bottom 20%",
+        markers: true,
+      },
+    });
+
+    const tl2 = gsap.timeline();
+    tl2.fromTo(
+      "#stack",
+      {
+        rotate: 360,
+      },
+      {
+        rotate: 0,
+        duration: 0.5,
+        scrollTrigger: {
+          trigger: ref2.current,
+          start: "top 50%",
+          end: "bottom 20%",
+
+          markers: true,
+        },
+      }
+    );
+  }, []);
+
   const stackList = [
     {
       icon: (
         <Image
+          ref={ref}
           className="rounded-full"
           src="/images/stack/tailwind.svg"
           alt="Tailwind CSS"
@@ -123,6 +203,7 @@ const SkeletonTwo = () => {
     {
       icon: (
         <Image
+          ref={ref2}
           className="rounded-full"
           src="/images/stack/stripe.svg"
           alt="Stripe"
@@ -135,6 +216,7 @@ const SkeletonTwo = () => {
     {
       icon: (
         <Image
+          ref={ref}
           className="rounded-full"
           src="/images/stack/nextauth.png"
           alt="Resend"
@@ -147,6 +229,7 @@ const SkeletonTwo = () => {
     {
       icon: (
         <Image
+          ref={ref2}
           className="rounded-full"
           src="/images/stack/prisma.svg"
           alt="Prisma"
@@ -158,6 +241,7 @@ const SkeletonTwo = () => {
     {
       icon: (
         <Image
+          ref={ref}
           className="rounded-full"
           src="/images/stack/prisma.svg"
           alt="Prisma"
@@ -191,28 +275,21 @@ const SkeletonTwo = () => {
       },
     },
   };
-  const ref = useRef(null);
-  const inView = useInView(ref);
-  const controls = useAnimation();
-  useEffect(() => {
-    if (inView) {
-      console.log("inView");
-      controls.start("animate");
-    } else {
-      controls.start("initial");
-    }
-  }, [inView, controls]);
 
   return (
     <motion.div
       initial="initial"
-      animate={controls}
-      ref={ref}
-      transition={{ staggerChildren: 0.1 }}
+      whileHover={"animate"}
       className=" dark:bg-dot-white/[0.2] bg-dot-black/[0.2] space-y-2 grid grid-cols- grid-cols-3 gap-2 p-2 rounded-lg"
     >
       {stackList.map((stack, i) => (
-        <motion.div key={i} variants={i % 2 === 0 ? variants : variantsSecond}>
+        <motion.div
+          id="stack"
+          key={i}
+          variants={i % 2 === 0 ? variants : variantsSecond}
+          ref={i % 2 === 0 ? ref : ref2}
+          className="h-16 w-16 rounded-full bg-white dark:bg-black dark:bg-opacity-50 flex items-center justify-center"
+        >
           {stack.icon}
         </motion.div>
       ))}
@@ -242,10 +319,9 @@ const SkeletonThree = () => {
 
   return (
     <motion.div
-      whileInView={"animate"}
       initial="initial"
       animate={controls}
-      whileHover={"animate"}
+      ref={ref}
       variants={variants}
       transition={{
         duration: 5,
@@ -301,7 +377,6 @@ const SkeletonFour = () => {
       initial="initial"
       animate={controls}
       ref={ref}
-      whileHover={"hover"}
       className="flex flex-1 w-full h-full min-h-[6rem] dark:bg-dot-white/[0.2] bg-dot-black/[0.2] flex-row space-x-2"
     >
       <motion.div
@@ -309,7 +384,7 @@ const SkeletonFour = () => {
         className="h-full w-1/3 rounded-2xl bg-white p-4 dark:bg-black dark:border-white/[0.1] border border-neutral-200 flex flex-col items-center justify-center"
       >
         <Image
-          src="https://pbs.twimg.com/profile_images/1417752099488636931/cs2R59eW_400x400.jpg"
+          src="/images/avatar.jpg"
           alt="avatar"
           height="100"
           width="100"
@@ -324,7 +399,7 @@ const SkeletonFour = () => {
       </motion.div>
       <motion.div className="h-full relative z-20 w-1/3 rounded-2xl bg-white p-4 dark:bg-black dark:border-white/[0.1] border border-neutral-200 flex flex-col items-center justify-center">
         <Image
-          src="https://pbs.twimg.com/profile_images/1417752099488636931/cs2R59eW_400x400.jpg"
+          src="/images/avatar.jpg"
           alt="avatar"
           height="100"
           width="100"
@@ -342,7 +417,7 @@ const SkeletonFour = () => {
         className="h-full w-1/3 rounded-2xl bg-white p-4 dark:bg-black dark:border-white/[0.1] border border-neutral-200 flex flex-col items-center justify-center"
       >
         <Image
-          src="https://pbs.twimg.com/profile_images/1417752099488636931/cs2R59eW_400x400.jpg"
+          src="/images/avatar.jpg"
           alt="avatar"
           height="100"
           width="100"
@@ -401,7 +476,6 @@ const SkeletonFive = () => {
       initial="initial"
       animate={controls}
       ref={ref}
-      whileHover={"animate"}
       className="flex flex-1 w-full h-full min-h-[6rem] dark:bg-dot-white/[0.2] bg-dot-black/[0.2] flex-col space-y-2"
     >
       <motion.div
@@ -409,7 +483,7 @@ const SkeletonFive = () => {
         className="flex flex-row rounded-2xl border border-neutral-100 dark:border-white/[0.2] p-2  items-start space-x-2 bg-white dark:bg-black"
       >
         <Image
-          src="https://pbs.twimg.com/profile_images/1417752099488636931/cs2R59eW_400x400.jpg"
+          src="/images/avatar.jpg"
           alt="avatar"
           height="100"
           width="100"
