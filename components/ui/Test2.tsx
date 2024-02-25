@@ -57,7 +57,6 @@ const SkeletonOne = () => {
       rotate: 0,
       transition: {
         duration: 0.2,
-        delay: 0.5,
       },
     },
   };
@@ -72,12 +71,12 @@ const SkeletonOne = () => {
     <motion.div
       initial="initial"
       animate={controls}
+      ref={ref}
       whileHover={"animate"}
       className="flex flex-1 w-full h-full min-h-[6rem] dark:bg-dot-white/[0.2] bg-dot-black/[0.2] flex-col space-y-2"
     >
       <motion.div
         variants={variants}
-        ref={ref}
         className="flex flex-row rounded-full border border-neutral-100 dark:border-white/[0.2] p-2  items-center space-x-2 w-3/4 md:w-full bg-white dark:bg-black "
       >
         <div>
@@ -116,7 +115,6 @@ const SkeletonTwo = () => {
     {
       icon: (
         <Image
-          ref={ref}
           className="rounded-full"
           src="/images/stack/react.svg"
           alt="Next.js"
@@ -128,7 +126,6 @@ const SkeletonTwo = () => {
     {
       icon: (
         <Image
-          ref={ref2}
           className="rounded-full bg-white"
           src="/images/stack/nextjs.svg"
           alt="Nextjs
@@ -141,7 +138,6 @@ const SkeletonTwo = () => {
     {
       icon: (
         <Image
-          ref={ref}
           className="rounded-full"
           src="/images/stack/js.svg"
           alt="Tailwind CSS"
@@ -154,7 +150,6 @@ const SkeletonTwo = () => {
     {
       icon: (
         <Image
-          ref={ref}
           className="rounded-full"
           src="/images/stack/tailwind.svg"
           alt="Tailwind CSS"
@@ -167,7 +162,6 @@ const SkeletonTwo = () => {
     {
       icon: (
         <Image
-          ref={ref2}
           className="rounded-full"
           src="/images/stack/stripe.svg"
           alt="Stripe"
@@ -180,7 +174,6 @@ const SkeletonTwo = () => {
     {
       icon: (
         <Image
-          ref={ref}
           className="rounded-full"
           src="/images/stack/nextauth.png"
           alt="Resend"
@@ -193,7 +186,6 @@ const SkeletonTwo = () => {
     {
       icon: (
         <Image
-          ref={ref2}
           className="rounded-full"
           src="/images/stack/prisma.svg"
           alt="Prisma"
@@ -205,7 +197,6 @@ const SkeletonTwo = () => {
     {
       icon: (
         <Image
-          ref={ref}
           className="rounded-full"
           src="/images/stack/post.svg"
           alt="Prisma"
@@ -217,7 +208,6 @@ const SkeletonTwo = () => {
     {
       icon: (
         <Image
-          ref={ref2}
           className="rounded-full bg-white"
           src="/images/stack/git.svg"
           alt="Vercel"
@@ -237,7 +227,6 @@ const SkeletonTwo = () => {
       translateZ: 10,
       transition: {
         duration: 0.2,
-        delay: 0.5,
       },
     },
   };
@@ -258,6 +247,7 @@ const SkeletonTwo = () => {
     <motion.div
       initial="initial"
       whileHover={"animate"}
+      ref={ref}
       className=" dark:bg-dot-white/[0.2] bg-dot-black/[0.2] space-y-2 grid grid-cols- grid-cols-3 gap-2 p-2 rounded-lg"
     >
       {stackList.map((stack, i) => (
@@ -265,7 +255,6 @@ const SkeletonTwo = () => {
           id="stack"
           key={i}
           variants={i % 2 === 0 ? variants : variantsSecond}
-          ref={i % 2 === 0 ? ref : ref2}
           className="h-16 w-16 rounded-full bg-white dark:bg-black  flex items-center justify-center"
         >
           {stack.icon}

@@ -115,7 +115,41 @@ const SkeletonTwo = () => {
     {
       icon: (
         <Image
-          ref={ref}
+          className="rounded-full"
+          src="/images/stack/react.svg"
+          alt="Next.js"
+          height="40"
+          width="40"
+        />
+      ),
+    },
+    {
+      icon: (
+        <Image
+          className="rounded-full bg-white"
+          src="/images/stack/nextjs.svg"
+          alt="Nextjs
+          "
+          height="40"
+          width="40"
+        />
+      ),
+    },
+    {
+      icon: (
+        <Image
+          className="rounded-full"
+          src="/images/stack/js.svg"
+          alt="Tailwind CSS"
+          height="40"
+          width="40"
+        />
+      ),
+    },
+
+    {
+      icon: (
+        <Image
           className="rounded-full"
           src="/images/stack/tailwind.svg"
           alt="Tailwind CSS"
@@ -128,7 +162,6 @@ const SkeletonTwo = () => {
     {
       icon: (
         <Image
-          ref={ref2}
           className="rounded-full"
           src="/images/stack/stripe.svg"
           alt="Stripe"
@@ -141,7 +174,6 @@ const SkeletonTwo = () => {
     {
       icon: (
         <Image
-          ref={ref}
           className="rounded-full"
           src="/images/stack/nextauth.png"
           alt="Resend"
@@ -154,7 +186,6 @@ const SkeletonTwo = () => {
     {
       icon: (
         <Image
-          ref={ref2}
           className="rounded-full"
           src="/images/stack/prisma.svg"
           alt="Prisma"
@@ -166,10 +197,20 @@ const SkeletonTwo = () => {
     {
       icon: (
         <Image
-          ref={ref}
           className="rounded-full"
-          src="/images/stack/prisma.svg"
+          src="/images/stack/post.svg"
           alt="Prisma"
+          height="40"
+          width="40"
+        />
+      ),
+    },
+    {
+      icon: (
+        <Image
+          className="rounded-full bg-white"
+          src="/images/stack/git.svg"
+          alt="Vercel"
           height="40"
           width="40"
         />
@@ -216,7 +257,7 @@ const SkeletonTwo = () => {
           key={i}
           variants={i % 2 === 0 ? variants : variantsSecond}
           ref={i % 2 === 0 ? ref : ref2}
-          className="h-16 w-16 rounded-full bg-white dark:bg-black dark:bg-opacity-50 flex items-center justify-center"
+          className="h-16 w-16 rounded-full bg-white dark:bg-black  flex items-center justify-center"
         >
           {stack.icon}
         </motion.div>
