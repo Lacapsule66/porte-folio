@@ -3,7 +3,6 @@ import { Inter } from "next/font/google";
 
 import { Background } from "@/components/Background";
 import Footer from "@/components/ui/Footer";
-import { InfiniteMovingCardsDemo } from "@/components/ui/Infini";
 import Header from "./features/header/Header";
 import "./globals.css";
 import { Providers } from "./providers/providers";
@@ -30,7 +29,7 @@ export default function RootLayout({
           {children}
           {/* </WavyBackground> */}
         </Providers>
-        <InfiniteMovingCardsDemo />
+        {/* <InfiniteMovingCardsDemo /> */}
         <Footer />
       </body>
     </html>
