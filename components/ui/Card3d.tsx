@@ -71,7 +71,7 @@ export function Card3d() {
               as="a"
               className="px-4 py-2 rounded-xl text-xs font-normal dark:text-white"
             >
-              <a href="https://bistrot-llauro.vercel.app">Par ici →</a>
+              <a href="https://sophie-gamma.vercel.app/index.html">Par ici →</a>
             </CardItem>
           </div>
         </CardBody>
@@ -106,7 +106,7 @@ export function Card3d() {
               as="a"
               className="px-4 py-2 rounded-xl text-xs font-normal dark:text-white"
             >
-              <a href="https://sophie-gamma.vercel.app/index.html">Par ici →</a>
+              <a href="https://bistrot-llauro.vercel.app/">Par ici →</a>
             </CardItem>
           </div>
         </CardBody>
