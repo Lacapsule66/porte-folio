@@ -1,5 +1,7 @@
 "use client";
+import { CanvasRevealEffectDemo } from "@/components/Canvas";
 import { Test } from "@/components/Test";
+import { VortexDemoSecond } from "@/components/Vortex";
 import { Card3d } from "@/components/ui/Card3d";
 import { Test2 } from "@/components/ui/Test2";
 import { TextEffect } from "@/components/ui/TextEffect";
@@ -32,8 +34,10 @@ export default function Home() {
     },
   };
   return (
-    <div>
+    <div className="mt-32">
       <TracingBeam>
+        <VortexDemoSecond />
+        <CanvasRevealEffectDemo />
         <TextEffect />
         <MobileView>
           <Test />

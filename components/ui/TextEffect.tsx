@@ -10,10 +10,10 @@ export function TextEffect() {
       text: "Marty",
     },
     {
-      text: "Developer",
+      text: "Développeur",
     },
     {
-      text: "Frontend",
+      text: "FullStack",
     },
   ];
   return (

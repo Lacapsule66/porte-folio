@@ -29,7 +29,6 @@ export default function RootLayout({
           {children}
           {/* </WavyBackground> */}
         </Providers>
-        {/* <InfiniteMovingCardsDemo /> */}
         <Footer />
       </body>
     </html>
