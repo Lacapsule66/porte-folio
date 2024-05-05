@@ -5,29 +5,23 @@ import { SocialIcon } from "react-social-icons";
 export default function Footer() {
   const socials = [
     {
-      name: "GitHub",
-      link: "",
-      icone: <SocialIcon url="github.com" />,
-    },
-    {
-      name: "Twitter",
-      link: "",
-      icone: <SocialIcon url="twitter.com" />,
-    },
-    {
       name: "LinkedIn",
       link: "",
-      icone: <SocialIcon url="linkedin.com" />,
+      icone: (
+        <SocialIcon url="https://www.linkedin.com/in/romain-marty-a93757248/" />
+      ),
     },
     {
-      name: "Facebook",
-      link: "",
-      icone: <SocialIcon url="facebook.com" />,
+      name: "Gmail",
+      link: "Email",
+      icone: <SocialIcon url="gmail.com" />,
+      network: "Email",
     },
+
     {
       name: "Instagram",
       link: "",
-      icone: <SocialIcon url="instagram.com" />,
+      icone: <SocialIcon url="https://www.instagram.com/marty_romain66/" />,
     },
   ];
   return (
