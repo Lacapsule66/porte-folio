@@ -31,7 +31,7 @@ export function Avatar({
   length: number;
 }) {
   return (
-    <div className="flex flex-row items-center justify-center mb-10 w-full">
+    <div className="flex flex-row items-center  justify-center mb-10">
       <AnimatedTooltip
         length={length}
         videoOrPhoto={videoOrPhoto}

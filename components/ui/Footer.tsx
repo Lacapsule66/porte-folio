@@ -13,7 +13,7 @@ export default function Footer() {
     },
     {
       name: "Gmail",
-      link: "Email",
+      link: "gmail.com",
       icone: <SocialIcon url="gmail.com" />,
       network: "Email",
     },

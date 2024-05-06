@@ -31,13 +31,14 @@ export function VortexDemoSecond() {
         className="flex items-center flex-col justify-center px-2 md:px-10  py-4 w-full h-full"
       >
         <h2 className="text-black dark:text-white  text-2xl md:text-6xl font-bold text-center">
-          Innovant avec Next.js pour façonner le web de demain
+          Développeur Fullstack Next.js : Façonner l'Avenir du Web avec
+          Innovation
         </h2>
-        <p className="text-black dark:text-white text-sm md:text-2xl max-w-xl mt-6 text-center">
+        <p className="text-black dark:text-white text-sm md:text-2xl max-w-xl mt-2 text-center">
           —
         </p>
-        <p className="text-black dark:text-white text-sm md:text-2xl max-w-xl mt-6 text-center">
-          disponible pour des projets freelance et des rôles ambitieux.{" "}
+        <p className="text-black dark:text-white text-sm md:text-2xl max-w-xl mt-2 text-center">
+          Ouvert aux défis freelance et opportunités de carrière enrichissantes.{" "}
         </p>
       </Vortex>
     </div>
