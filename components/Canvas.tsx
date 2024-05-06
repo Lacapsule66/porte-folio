@@ -65,6 +65,9 @@ const Card = ({
             <div className=" bg-white  dark:bg-black  dark:text-white  top-14 rotate-12 rounded-lg p-2 absolute z-10">
               <h2>Féru de navigation a la voile</h2>
             </div>
+            <div className=" bg-white  dark:bg-black  dark:text-white  top-28 rotate-6 rounded-lg p-2 absolute z-10">
+              <h2>Il m'arrive souvent de codé depuis mon voilier</h2>
+            </div>
             {video}
           </div>
         )}
