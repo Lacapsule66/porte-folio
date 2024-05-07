@@ -1,8 +1,8 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-
 import { Background } from "@/components/Background";
 import Footer from "@/components/ui/Footer";
+import { Analytics } from "@vercel/analytics/react";
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
 import Header from "./features/header/Header";
 import "./globals.css";
 import { Providers } from "./providers/providers";
@@ -30,6 +30,7 @@ export default function RootLayout({
           {/* </WavyBackground> */}
         </Providers>
         <Footer />
+        <Analytics />
       </body>
     </html>
   );
